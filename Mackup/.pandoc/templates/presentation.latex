@@ -1,0 +1,85 @@
+\documentclass[t,
+aspectratio=169,  % Auskommentieren für einfaches 4:3 Verhältnis
+%handout,         % Aktivieren um Overlays zu ignorieren
+]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\usepackage{pgfpages}
+
+\usepackage{booktabs}
+\usepackage{relsize}
+\usepackage{hyperref}
+\renewcommand*{\UrlFont}{\ttfamily\smaller\relax}
+
+\title{Folientitel\\ Ggf.\ zweizeilig}
+\subtitle{Ein einführendes Beispiel\\ Zweite, und\\ dritte Zeile}
+\author[A. Fischer]  % Kurzer Name für Fußzeile
+       {Andreas Fischer \\  % Voller Name für Titelfolie
+	\href{mailto:andreas.fischer@th-deg.de}{andreas.fischer@th-deg.de}}
+
+\usetheme{thdeg}
+
+\begin{document}
+
+\begin{frame}
+\titlepage{}
+\end{frame}
+
+\begin{frame}
+\frametitle{Eine Folienüberschrift}
+\framesubtitle{Ein Folien-Untertitel}
+
+\begin{block}{Ein Block}
+	\begin{itemize}
+		\item Mehrere
+		\item Items
+		\begin{itemize}
+			\item Sogar in
+			\item zweiter Reihe
+		\end{itemize}
+	\end{itemize}
+\end{block}
+
+\ldots
+\end{frame}
+
+\begin{frame}{Eine Folie mit zweispaltigem Layout}
+	\begin{columns}[T]
+	\begin{column}[T]{.45\linewidth}
+		\begin{block}{Linker Teil}
+			\ldots
+		\end{block}
+	\end{column}
+	\begin{column}[T]{.45\linewidth}
+		\begin{block}{Rechter Teil}
+			\ldots
+		\end{block}
+	\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Eine Folie\ldots}
+	\begin{itemize}[<+->]
+		\item auf\ldots
+		\item der\ldots
+		\item alles\ldots
+		\item erst\ldots
+		\item nacheinander\ldots
+		\item erscheint.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Eine Grafik}
+	\begin{center}
+	\begin{tikzpicture}
+		\node[draw,circle] (A) {A};
+		\node[draw,circle,right=of A] (B) {B};
+		\draw<+->[bend left,-latex] (A) to node[midway,above] {\tiny TikZ Grafiken sind} (B);
+		\draw<+->[bend left,-latex] (B) to node[midway,below] {\tiny schon integriert} (A);
+	\end{tikzpicture}
+	\end{center}
+\end{frame}
+
+
+\end{document}

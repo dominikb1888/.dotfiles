@@ -1,0 +1,7 @@
+package brew
+package foreign-env
+package fzf
+package https://github.com/jhillyerd/plugin-git
+package https://github.com/sujaybokil/fish-gruvbox
+theme agnoster
+theme default

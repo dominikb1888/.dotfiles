@@ -1,0 +1,18 @@
+{
+    "initial_working_directory": "~",
+    "posix_terminal_shell": "bash",
+    "python_type": "system",
+    "python_version": "3.9.2",
+    "python_path": "/usr/local/bin/python3",
+    "jobs_tab_visibility": "shown",
+    "rmd_viewer_type": "pane",
+    "global_theme": "classic",
+    "editor_theme": "Solarized Dark",
+    "show_rmd_render_command": true,
+    "visual_markdown_editing_is_default": true,
+    "highlight_selected_line": true,
+    "show_indent_guides": true,
+    "rainbow_parentheses": true,
+    "auto_save_on_blur": true,
+    "show_diagnostics_other": true
+}

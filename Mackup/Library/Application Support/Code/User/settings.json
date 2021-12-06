@@ -1,0 +1,134 @@
+{
+    "terminal.integrated.shell.linux": "/usr/bin/zsh",
+    "files.autoSave": "afterDelay",
+    "terminal.integrated.inheritEnv": false,
+    "go.autocompleteUnimportedPackages": true,
+    "go.gocodeAutoBuild": true,
+    "git.enableSmartCommit": true,
+    "editor.renameOnType": true,
+    "editor.tabCompletion": "on",
+    "editor.tabSize": 2,
+    "editor.unfoldOnClickAfterEndOfLine": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSaveMode": "modifications",
+    "editor.formatOnType": true,
+    "diffEditor.codeLens": true,
+    "gaac.replacePatternWith": [
+
+        {
+            "pattern": "/^.editorconfig/",
+            "with": "editorconfig"
+        },
+        {
+            "pattern": "/^.gitignore/",
+            "with": "git"
+        },
+        {
+            "pattern": "/^.travis/",
+            "with": "travis"
+        },
+        {
+            "pattern": "/^.vscodeignore/",
+            "with": "vscode"
+        },
+        {
+            "pattern": "/^CHANGELOG[^:]*/",
+            "with": "changelog"
+        },
+        {
+            "pattern": "/^Godeps[^:]*/",
+            "with": "godep"
+        },
+        {
+            "pattern": "/^LICENSE[^:]*/",
+            "with": "license"
+        },
+        {
+            "pattern": "/^Makefile[^:]*/i",
+            "with": "makefile"
+        },
+        {
+            "pattern": "/^(npm-shrinkwrap|.npmignore|package(-lock)?)[^:]*/",
+            "with": "npm"
+        },
+        {
+            "pattern": "/^webpack[^:]*/",
+            "with": "webpack"
+        },
+        {
+            "pattern": "/^README[^:]*/",
+            "with": "readme"
+        },
+        {
+            "pattern": "/^src//",
+            "with": ""
+        }
+    ],
+    "git.postCommitCommand": "push",
+    "git.confirmEmptyCommits": false,
+    "git.confirmNoVerifyCommit": false,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    "latex-workshop.view.pdf.viewer": "tab",
+    "ltex.diagnosticSeverity": "error",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "spellright.recheckOnSave": false,
+    "spellright.language": [
+        "en"
+    ],
+    "ltex.additionalRules.motherTongue": "de-DE",
+    "spellright.spellContext": "body strings",
+    "files.associations": {
+        "*.rmd": "markdown",
+        "*.latex": "latex",
+        "*.lco": "latex"
+    },
+    "jupyter.sendSelectionToInteractiveWindow": true,
+    "python.defaultInterpreterPath": "/usr/local/bin/python3",
+    "tabnine.experimentalAutoImports": true,
+    "workbench.colorTheme": "Default Dark+",
+    "workbench.iconTheme": "vscode-icons",
+    "dashboard.projectData": null,
+    "vsicons.dontShowNewVersionMessage": true,
+    "terminal.integrated.automationShell.osx": "/bin/zsh",
+    "[markdown]": {
+    
+
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": false
+    },
+    "markdown.extension.toc.orderedList": true,
+    "ai.azureml.experimental: V2Config": false,
+    "jupyter.alwaysTrustNotebooks": true,
+    "window.zoomLevel": 2,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "terminal.explorerKind": "external",
+    "terminal.integrated.cursorStyle": "underline",
+    "python.pythonPath": "/usr/local/bin/python3",
+    "python.languageServer": "Pylance",
+    "python.testing.pytestEnabled": true,
+    "jupyter.interactiveWindowMode": "perFile",
+    "latex-utilities.message.update.show": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ],
+    "vscode-neovim.neovimInitVimPaths.darwin": "/users/dboehler/.config/lvim/config.lua",
+    "vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim",
+    "vscode-neovim.mouseSelectionStartVisualMode": true,
+}

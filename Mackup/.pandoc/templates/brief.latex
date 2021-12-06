@@ -1,0 +1,39 @@
+% based on briefwbk2.tex
+% Copyright 2019 Benedikt Elser, Andreas Fischer
+% 
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+% http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+% 
+\documentclass[%
+  DIV=9,
+  fontsize=10pt,
+  THD_Vorlage,
+  Stammdaten,
+  ]{scrlttr2}
+
+% ===== Deutsche Sprache =====
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+% ============================
+
+\usepackage{lipsum}
+
+\setkomavar{yourmail}{~} 				% Ihr Schreiben vom
+\setkomavar{myref}{~}            			% Unser Zeichen
+\setkomavar{date}{\parbox[t]{3cm}{Deggendorf,\\\today}} % Ort, Datum
+
+\setkomavar{subject}{Wegen diesem Briefdings\ldots}
+
+\begin{document}
+  \begin{letter}{%
+      Peter Pan\\Lager der wilden Jungs\\Nimmerland}
+    \opening{Sehr geehrte Damen und Herren,}
+	\lipsum[1-5]
+    \closing{Mit freundlichen Grüßen}
+  \end{letter}%
+\end{document}

@@ -1,0 +1,42 @@
+\documentclass[addpoints,12pt,
+noanswers]  % answers or noanswers
+{exam}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx,amssymb,amsmath,multirow,tabularx,pgf,pgfpages}
+\usepackage{libertine}
+\usepackage[ngerman]{babel}
+
+%%% Folgendes bitte anpassen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\theauthor}{Prof.\ Dr.\ Andreas Fischer}
+\newcommand{\thedate}{10.02.2020}
+\newcommand{\thetime}{11:00}
+\newcommand{\semester}{SS 2019}
+\newcommand{\course}{Echtzeitsysteme}
+\newcommand{\programme}{BA Angewandte Informatik}
+\newcommand{\examtype}{schr. P. 90 Min}
+\newcommand{\duration}{90 Minuten}
+\newcommand{\supplies}{Ein einseitig handschriftlich beschriebenes DINA4-Blatt}
+\newcommand{\faculty}{Angewandte Informatik}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{thdstyle}
+
+\begin{document}
+\input{titlepage}
+
+\begin{questions}
+
+	\question[5] Frage \dots \emph{Punkte müssen angegeben werden!}
+
+	\question Frage mit Unterpunkten
+	\begin{parts}
+		\part[3] Etwas
+		\part[2] und noch etwas
+	\end{parts}
+	\section*{Wichtiges Thema}
+	\question[10] Wichtige Frage \dots
+
+\end{questions}
+\end{document}

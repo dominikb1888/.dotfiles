@@ -1,0 +1,38 @@
+{
+  "load_extensions": {
+    "create_assignment/main": true,
+    "validate_assignment/main": false,
+    "toc2/main": true,
+    "table_beautifier/main": true,
+    "move_selected_cells/main": true,
+    "exercise2/main": true,
+    "exercise/main": true,
+    "code_prettify/code_prettify": true,
+    "codefolding/main": true,
+    "cell_filter/cell_filter": true,
+    "python-markdown/main": true,
+    "livemdpreview/livemdpreview": false,
+    "load_tex_macros/main": true,
+    "latex_envs/latex_envs": true,
+    "varInspector/main": true,
+    "hinterland/hinterland": true
+  },
+  "livemdpreview": {
+    "show_side_by_side": false
+  },
+  "varInspector": {
+    "window_display": true,
+    "cols": {
+      "lenVar": "400"
+    }
+  },
+  "Notebook": {
+    "Header": true,
+    "Toolbar": true
+  },
+  "Cell": {
+    "cm_config": {
+      "lineNumbers": true
+    }
+  }
+}

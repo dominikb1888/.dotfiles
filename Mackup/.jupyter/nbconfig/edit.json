@@ -1,0 +1,10 @@
+{
+  "load_extensions": {
+    "codefolding/edit": true
+  },
+  "Editor": {
+    "file_extension_modes": {
+      ".Rmd": "Markdown"
+    }
+  }
+}
