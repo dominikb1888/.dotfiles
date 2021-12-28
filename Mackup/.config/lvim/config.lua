@@ -7,18 +7,19 @@ a global executable or a path to
 an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
+require('impatient')
 
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "tokyonight"
+lvim.colorscheme = "onedarker"
 vim.opt.relativenumber = true -- set relative numbered lines
 vim.opt.foldenable = false -- disable folding on startup
 vim.opt.keywordprg = "google"
 
-function Pypoprepl()
-        require('telegraph').telegraph({cmd='python3 -c "import time\n{cline}\ntime.sleep(2)"', how='tmux_popup'})
-end
+-- function Pypoprepl()
+--         require('telegraph').telegraph({cmd='python3 -c "import time\n{cline}\ntime.sleep(2)"', how='tmux_popup'})
+-- end
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -47,39 +48,39 @@ lvim.keys.visual_mode = {
 }
 
 -- unmap a default keymapping
--- lvim.keys.normal_mode["<C-Up>"] = ""
+lvim.keys.normal_mode["<C-Up>"] = ""
 -- edit a default keymapping
--- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
+lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
--- local _, actions = pcall(require, "telescope.actions")
--- lvim.builtin.telescope.defaults.mappings = {
---   -- for input mode
---   i = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
---     ["<C-n>"] = actions.cycle_history_next,
---     ["<C-p>"] = actions.cycle_history_prev,
---   },
---   -- for normal mode
---   n = {
---     ["<C-j>"] = actions.move_selection_next,
---     ["<C-k>"] = actions.move_selection_previous,
---   },
--- }
+local _, actions = pcall(require, "telescope.actions")
+lvim.builtin.telescope.defaults.mappings = {
+  -- for input mode
+  i = {
+    ["<C-j>"] = actions.move_selection_next,
+    ["<C-k>"] = actions.move_selection_previous,
+    ["<C-n>"] = actions.cycle_history_next,
+    ["<C-p>"] = actions.cycle_history_prev,
+  },
+  -- for normal mode
+  n = {
+    ["<C-j>"] = actions.move_selection_next,
+    ["<C-k>"] = actions.move_selection_previous,
+  },
+}
 
 -- Use which-key to add extra bindings with the leader-key prefix
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+Trouble",
---   r = { "<cmd>Trouble lsp_references<cr>", "References" },
---   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
---   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
---   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
--- }
+lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["t"] = {
+  name = "+Trouble",
+  r = { "<cmd>Trouble lsp_references<cr>", "References" },
+  f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+  d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
+  q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+  l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+  w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
+}
 
 -- TODO: User Config for predefined plugins
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -108,73 +109,73 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- generic LSP settings
 
--- ---@usage disable automatic installation of servers
--- lvim.lsp.automatic_servers_installation = false
+---@usage disable automatic installation of servers
+lvim.lsp.automatic_servers_installation = false
 
--- ---@usage Select which servers should be configured manually. Requires `:LvimCacheRest` to take effect.
+---@usage Select which servers should be configured manually. Requires `:LvimCacheRest` to take effect.
 -- See the full default list `:lua print(vim.inspect(lvim.lsp.override))`
--- vim.list_extend(lvim.lsp.override, { "pyright" })
+vim.list_extend(lvim.lsp.override, { "pyright" })
 
--- ---@usage setup a server -- see: https://www.lunarvim.org/languages/#overriding-the-default-configuration
--- local opts = {} -- check the lspconfig documentation for a list of all possible options
--- require("lvim.lsp.manager").setup("pylsp", opts)
+---@usage setup a server -- see: https://www.lunarvim.org/languages/#overriding-the-default-configuration
+local opts = {} -- check the lspconfig documentation for a list of all possible options
+require("lvim.lsp.manager").setup("pylsp", opts)
 
 -- you can set a custom on_attach function that will be used for all the language servers
 -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
--- lvim.lsp.on_attach_callback = function(client, bufnr)
---   local function buf_set_option(...)
---     vim.api.nvim_buf_set_option(bufnr, ...)
---   end
---   --Enable completion triggered by <c-x><c-o>
---   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
--- end
+lvim.lsp.on_attach_callback = function(client, bufnr)
+  local function buf_set_option(...)
+    vim.api.nvim_buf_set_option(bufnr, ...)
+  end
+  --Enable completion triggered by <c-x><c-o>
+  buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+end
 -- you can overwrite the null_ls setup table (useful for setting the root_dir function)
--- lvim.lsp.null_ls.setup = {
---   root_dir = require("lspconfig").util.root_pattern("Makefile", ".git", "node_modules"),
--- }
+lvim.lsp.null_ls.setup = {
+  root_dir = require("lspconfig").util.root_pattern("Makefile", ".git", "node_modules"),
+}
 -- or if you need something more advanced
--- lvim.lsp.null_ls.setup.root_dir = function(fname)
---   if vim.bo.filetype == "javascript" then
---     return require("lspconfig/util").root_pattern("Makefile", ".git", "node_modules")(fname)
---       or require("lspconfig/util").path.dirname(fname)
---   elseif vim.bo.filetype == "php" then
---     return require("lspconfig/util").root_pattern("Makefile", ".git", "composer.json")(fname) or vim.fn.getcwd()
---   else
---     return require("lspconfig/util").root_pattern("Makefile", ".git")(fname) or require("lspconfig/util").path.dirname(fname)
---   end
--- end
+lvim.lsp.null_ls.setup.root_dir = function(fname)
+  if vim.bo.filetype == "javascript" then
+    return require("lspconfig/util").root_pattern("Makefile", ".git", "node_modules")(fname)
+      or require("lspconfig/util").path.dirname(fname)
+  elseif vim.bo.filetype == "php" then
+    return require("lspconfig/util").root_pattern("Makefile", ".git", "composer.json")(fname) or vim.fn.getcwd()
+  else
+    return require("lspconfig/util").root_pattern("Makefile", ".git")(fname) or require("lspconfig/util").path.dirname(fname)
+  end
+end
 
--- -- set a formatter, this will override the language server formatting capabilities (if it exists)
--- local formatters = require "lvim.lsp.null-ls.formatters"
--- formatters.setup {
---   { exe = "black", filetypes = { "python" } },
---   { exe = "isort", filetypes = { "python" } },
---   {
---     exe = "prettier",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     args = { "--print-with", "100" },
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "typescript", "typescriptreact" },
---   },
--- }
+-- set a formatter, this will override the language server formatting capabilities (if it exists)
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  { exe = "black", filetypes = { "python" } },
+  -- { exe = "isort", filetypes = { "python" } },
+  {
+    exe = "prettier",
+    ---@usage arguments to pass to the formatter
+    -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+    args = { "--print-with", "100" },
+    ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+    filetypes = { "typescript", "typescriptreact" },
+  },
+}
 
--- -- set additional linters
--- local linters = require "lvim.lsp.null-ls.linters"
--- linters.setup {
---   { exe = "flake8", filetypes = { "python" } },
---   {
---     exe = "shellcheck",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     args = { "--severity", "warning" },
---   },
---   {
---     exe = "codespell",
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "javascript", "python" },
---   },
--- }
+-- set additional linters
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+  { exe = "flake8", filetypes = { "python" } },
+  {
+    exe = "shellcheck",
+    ---@usage arguments to pass to the formatter
+    -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+    args = { "--severity", "warning" },
+  },
+  {
+    exe = "codespell",
+    ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+    filetypes = { "javascript", "python" },
+  },
+}
 -- additional plugins
 lvim.plugins = {
         -- color schemes
@@ -187,12 +188,19 @@ lvim.plugins = {
                 end
         },
         { "thehamsta/nvim-dap-virtual-text" },
+        -- Telescope
+        { 'nvim-telescope/telescope-bibtex.nvim' },
         { "nvim-telescope/telescope-dap.nvim",
                 config = function()
                         require("telescope").load_extension("dap")
                 end
         },
         { "nvim-telescope/telescope-symbols.nvim" },
+        { "nvim-telescope/telescope-media-files.nvim" },
+        { "nvim-telescope/telescope-github.nvim"},
+        { "crispgm/telescope-heading.nvim" },
+        { "cljoly/telescope-repo.nvim" },
+        { "airblade/vim-rooter" },
         { "jbyuki/one-small-step-for-vimkind" },
         -- editing
         { "folke/trouble.nvim", cmd = "troubletoggle", },
@@ -205,15 +213,14 @@ lvim.plugins = {
         },
         { "felipec/vim-sanegx", event = "bufread", },
         { "folke/todo-comments.nvim", event = "bufread", },
-        { "ellisonleao/glow.nvim", ft = {"markdown"}
-        },
+        { "ellisonleao/glow.nvim", ft = {"markdown"} },
         { "windwp/nvim-ts-autotag",
                 event = "insertenter",
                 config = function()
                         require("nvim-ts-autotag").setup()
                 end,
         },
-         { "phaazon/hop.nvim",
+        { "phaazon/hop.nvim",
                 event = "bufread",
                 config = function()
                         require("hop").setup()
@@ -222,10 +229,6 @@ lvim.plugins = {
                 end,
         },
         -- git and github
-        { "mattn/vim-gist",
-                event = "bufread",
-                requires = "mattn/webapi-vim",
-        },
         { "tpope/vim-fugitive",
                 cmd = {
                         "g",
@@ -244,41 +247,18 @@ lvim.plugins = {
                 },
                 ft = {"fugitive"}
         },
-        { "pwntester/octo.nvim", event = "bufread", },
-        { "ruifm/gitlinker.nvim",
-                event = "bufread",
-                config = function()
-                        require("gitlinker").setup {
-                                opts = {
-                                        -- remote = 'github', -- force the use of a specific remote
-                                        -- adds current line nr in the url for normal mode
-                                        add_current_line_on_normal_mode = true,
-                                        -- callback for what to do with the url
-                                        action_callback = require("gitlinker.actions").open_in_browser,
-                                        -- print the url after performing the action
-                                        print_url = false,
-                                        -- mapping to call url generation
-                                        mappings = "<leader>gy",
-                                },
-                        }
-                end,
-                requires = "nvim-lua/plenary.nvim",
+        { "AndrewRadev/diffurcate.vim"},
+        {'pwntester/octo.nvim',
+              config=function()
+                require"octo".setup()
+              end
         },
-        { "f-person/git-blame.nvim",
-                event = "bufread",
-                config = function()
-                        vim.cmd "highlight default link gitblame specialcomment"
-                        vim.g.gitblame_enabled = 0
-                end,
-        },
-        { "sindrets/diffview.nvim",
-                event = "bufread",
-        },
-       -- {"oberblastmeister/neuron.nvim"},
-        { "brymer-meneses/grammar-guard.nvim", requires = "neovim/nvim-lspconfig" },
+        -- Writing
+        -- { "brymer-meneses/grammar-guard.nvim", requires = "neovim/nvim-lspconfig" },
         { "junegunn/limelight.vim" },            -- focus on current paragraph
         { "junegunn/goyo.vim" },                 -- remove all clutter
         { "junegunn/vim-easy-align" },           -- adds shortcuts for aligning code
+
         -- markdown & latex
         { 'godlygeek/tabular' },
         { 'elzr/vim-json' },
@@ -288,27 +268,51 @@ lvim.plugins = {
         { 'vim-pandoc/vim-pandoc' },
         { 'vim-pandoc/vim-pandoc-syntax' },
         -- {'vim-pandoc/vim-rmarkdown'},
-        { 'jalvesaq/nvim-r' },
+        -- { 'jalvesaq/nvim-r' },
         { 'jghauser/auto-pandoc.nvim',
                 requires = 'nvim-lua/plenary.nvim',
                 config = function() require('auto-pandoc') end },
         {'lervag/vimtex',                   -- use braces when passing options
                 opt = true,
                 config = function() vim.g.vimtex_view_method = 'zathura' end },
-        { 'nvim-telescope/telescope-bibtex.nvim' },
         { 'vim-test/vim-test' },
         { 'tpope/vim-projectionist' },
         { 'tpope/vim-dispatch' },
         { 'tpope/vim-rhubarb' },
         { 'jalvesaq/zotcite' },
-        { 'waylonwalker/telegraph.nvim' },
-        { 'preservim/vimux' },
-        { 'julienr/vimux-pyutils' },
+        -- { 'waylonwalker/telegraph.nvim' },
+        -- { 'preservim/vimux' },
+        { 'triglav/vim-visual-increment' },
+        -- { 'julienr/vimux-pyutils' },
+        { 'vimwiki/vimwiki',
+                path = '~/Notes/',
+                syntax = 'markdown',
+                ext = '.md' },
+        { 'mattn/calendar-vim' },
+        { 'tools-life/taskwiki' },
+        { 'michal-h21/vimwiki-sync' },
+        { 'lewis6991/impatient.nvim' },
+        { 'soywod/himalaya', rtp = 'vim'}
+}
+
+-- Wimiwiki
+vim.g.vimwiki_list = {
+  {
+    path = '~/Notes/',
+    index = "index",
+    sytax = "markdown",
+    ext = "md",
+    auto_diary_index = 1,
+    auto_toc = 1,
+    auto_generte_links = 1
+  }
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
  lvim.autocommands.custom_groups = {
-   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
+    { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
+    { "BufReadPost", "*.md", "call <SID>WikiBufReadPostOverrides()"},
+    { "BufRead,BufNewFile", "*.md", ":Goyo 75%x75%" },
  }
 
 -- change telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
@@ -488,12 +492,3 @@ vim.api.nvim_set_keymap("i", "<s-tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<s-tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<c-e>", "<plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("s", "<c-e>", "<plug>luasnip-next-choice", {})
-
--- -- these are all the default values
--- require'neuron'.setup {
---     virtual_titles = true,
---     mappings = true,
---     run = nil, -- function to run when in neuron dir
---     neuron_dir = "~/notes", -- the directory of all of your notes, expanded by default (currently supports only one directory for notes, find a way to detect neuron.dhall to use any directory)
---     leader = "gz", -- the leader key to for all mappings, remember with 'go zettel'
--- }

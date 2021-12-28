@@ -15,6 +15,7 @@ set -gx LC_ALL en_US.UTF-8
 fish_add_path /usr/local/bin/
 fish_add_path /Users/dboehler/.local/bin/
 fish_add_path /Users/dboehler/.cargo/bin/
+fish_add_path /Users/dboehler/.zk/bin
 fish_add_path /Users/dboehler/.config/db_scripts/
  . ~/perl5/perlbrew/etc/perlbrew.fish 
 
@@ -34,20 +35,68 @@ alias lrr 'exa --tree --recurse --level=3'
 alias ld 'exa -aG | grep "^\."'
 
 alias cat 'bat'
-alias agenda 'gcalcli agenda --details location'
+alias icat 'kitty +kitten icat'
 
+# alias agenda 'gcalcli agenda --details location' # Some auth issue hence deactivated
+alias agenda "icalBuddy -f -npn -nc -iep 'datetime,title,location' -ps '/ | /' -po 'datetime,title,location' -ec ecri_shared_by_jrieder eventsToday"
+alias agendavim "icalBuddy -b '## ' -npn -nc -iep 'datetime,title,location' -ps '| - | - | \\n\\n |' -po 'datetime,title,location' -ec ecri_shared_by_jrieder eventsToday"
 set -gx EDITOR vim
+set -gx ZK_PATH /Users/dboehler/Notes
+
+alias pytest 'python3 -m pytest'
 
 function crop 
-   open -a /System/Applications/Photos.app/Contents/MacOS/Photos $argv --args Editor
-end
-
-function fish_user_key_bindings
-      fzf_key_bindings
+   open -a "/System/Applications/Photos.app/Contents/MacOS/Photos" $argv --args Editor
 end
 
 function google
   open 'https://www.google.de/search?q='$argv
+end
+
+function rgvim
+    set choice (rg -il $argv | fzf -0 -1 --ansi --preview "cat {} | rg $argv --context 3")
+    if [ $choice ]
+        nvim "+/"(string lower $argv) $choice
+    end
+end
+
+
+function mail
+    export FZF_DEFAULT_COMMAND='himalaya list -s 200' &&
+      fzf --bind "space:execute(himalaya reply {1})+reload($FZF_DEFAULT_COMMAND),esc:execute-silent(himalaya delete {1})+reload($FZF_DEFAULT_COMMAND),ctrl-f:execute(himalaya forward {1})+reload($FZF_DEFAULT_COMMAND),ctrl-a:execute(himalaya attachments {1})" \
+      --preview 'himalaya read {1} -t html | w3m -T text/html' \
+      --header-lines=2\
+      --header 'Space: Reply, Esc: Delete, Ctrl-f: Foward, Ctrl-a: Attachments, Ctrl-c: Exit'\
+      --layout=reverse\
+      --ansi
+end
+
+function zmd
+    open -a "Google Chrome" "https://th-deg-de.zoom.us/j/9730540869" 
+end
+
+
+function zm
+   open -a "Google Chrome"  "https://us04web.zoom.us/j/7166244957?pwd=S0llcjU1S0FWb1lwUnR3TXpndUNadz09"
+end
+
+if status is-interactive && test -f ~/.config/fish/custom/git_fzf.fish
+	source ~/.config/fish/custom/git_fzf.fish
+	git_fzf_key_bindings
+end
+
+function brdiff
+    set -l paths
+    set current (git branch --show-current)
+    for branch in (git branch -l | fzf -m | tr -d '[*+ ]') 
+        if [ $branch = $current ]
+           set -a paths $argv[1]
+        else
+           git worktree add "../$branch"
+           set -a paths "../$branch/$argv[1]"
+        end
+    end
+    vim -O $paths
 end
 
 # TokyoNight Color Palette
