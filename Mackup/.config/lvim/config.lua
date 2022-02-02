@@ -197,7 +197,7 @@ lvim.plugins = {
         },
         { "nvim-telescope/telescope-symbols.nvim" },
         { "nvim-telescope/telescope-media-files.nvim" },
-        { "nvim-telescope/telescope-github.nvim"},
+        { "dominikb1888/telescope-github.nvim"},
         { "crispgm/telescope-heading.nvim" },
         { "cljoly/telescope-repo.nvim" },
         { "airblade/vim-rooter" },

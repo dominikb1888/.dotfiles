@@ -134,3 +134,4 @@ end
     set -g fish_pager_color_description $comment
 
 starship init fish | source
+fish_add_path /usr/local/opt/python@3.10/bin

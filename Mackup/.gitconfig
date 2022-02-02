@@ -33,3 +33,5 @@
 	template = /Users/dboehler/.stCommitMsg
 [diff]
 	tool = vimdiff
+[init]
+	defaultBranch = main
