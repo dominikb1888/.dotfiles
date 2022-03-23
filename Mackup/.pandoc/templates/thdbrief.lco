@@ -1,0 +1,17 @@
+\ProvidesFile{thdbrief.lco}
+
+\setkomavar{fromname}{Prof. Dr. Dominik Böhler}
+\setkomavar{fromaddress}{%
+	Sepp-Giggenbach-Str. 31
+  84453 Mühldorf a. Inn
+}
+\setkomavar{fromemail}{dominik.boehler@gmx.net}\KOMAoptions{fromemail=true}
+\setkomavar{fromfax}{+1 888 555 4223}\KOMAoptions{fromfax=false}
+\setkomavar{frommobilephone}{+49 176 6157 0246}\KOMAoptions{frommobilephone=true}
+\setkomavar{fromphone}{+1 888 555 4242}\KOMAoptions{fromphone=false}
+\setkomavar{fromurl}{http://dominikboehler.de}\KOMAoptions{fromurl=true}
+
+\setkomavar{place}{Mühldorf}
+
+\setkomavar{opening}{Dear Sir or Madam,}
+\setkomavar{closing}{Sincerely,}

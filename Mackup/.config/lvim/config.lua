@@ -40,12 +40,14 @@ lvim.keys.normal_mode = {
         ['j'] =  'mzj`z',
         ['<leader>dv'] = ':lua require("dapui").toggle()<cr>',
         ['<leader>r'] = ':lua Pypoprepl()<cr>',
-        ['<leader>sl'] = ':lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>'
+        ['<leader>sl'] = ':lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>',
+        ['<leader>E'] = ':TREPLSendLine<cr>'
 }
 
 lvim.keys.visual_mode = {
+        ['<leader>E'] = ":TREPLSendSelection<cr>",
         ['.'] = ':norm.<cr>',
-}
+        }
 
 -- unmap a default keymapping
 lvim.keys.normal_mode["<C-Up>"] = ""
@@ -86,8 +88,12 @@ lvim.builtin.which_key.mappings["t"] = {
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
+lvim.builtin.dap.active = true
+lvim.builtin.lualine.active = true
+lvim.builtin.bufferline.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
+
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
@@ -163,7 +169,7 @@ formatters.setup {
 -- set additional linters
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  { exe = "flake8", filetypes = { "python" } },
+  { exe = "pylint", filetypes = { "python" } },
   {
     exe = "shellcheck",
     ---@usage arguments to pass to the formatter
@@ -188,6 +194,8 @@ lvim.plugins = {
                 end
         },
         { "thehamsta/nvim-dap-virtual-text" },
+        { "mfussenegger/nvim-dap-python"},
+        { "rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins" },
         -- Telescope
         { 'nvim-telescope/telescope-bibtex.nvim' },
         { "nvim-telescope/telescope-dap.nvim",
@@ -203,7 +211,7 @@ lvim.plugins = {
         { "airblade/vim-rooter" },
         { "jbyuki/one-small-step-for-vimkind" },
         -- editing
-        { "folke/trouble.nvim", cmd = "troubletoggle", },
+        -- { "folke/trouble.nvim", cmd = "troubletoggle", },
         { "metakirby5/codi.vim", cmd = "codi", },
         { "tpope/vim-repeat" },
         { "tpope/vim-surround", keys = {"c", "d", "y"} },
@@ -269,6 +277,8 @@ lvim.plugins = {
         { 'vim-pandoc/vim-pandoc-syntax' },
         -- {'vim-pandoc/vim-rmarkdown'},
         -- { 'jalvesaq/nvim-r' },
+        -- {'gpanders/vim-medieval'},
+        { 'kassio/neoterm' },
         { 'jghauser/auto-pandoc.nvim',
                 requires = 'nvim-lua/plenary.nvim',
                 config = function() require('auto-pandoc') end },
@@ -292,7 +302,11 @@ lvim.plugins = {
         { 'tools-life/taskwiki' },
         { 'michal-h21/vimwiki-sync' },
         { 'lewis6991/impatient.nvim' },
-        { 'soywod/himalaya', rtp = 'vim'}
+        -- { 'soywod/himalaya', rtp = 'vim'},
+        -- {'ellisonleao/carbon-now.nvim'},
+        -- { 'mrjones2014/legendary.nvim'},
+        -- { 'michaelb/sniprun', run = 'bash ./install.sh 1'},
+        { 'simrat39/symbols-outline.nvim', cmd = "SymbolsOutline" },
 }
 
 -- Wimiwiki
@@ -304,7 +318,8 @@ vim.g.vimwiki_list = {
     ext = "md",
     auto_diary_index = 1,
     auto_toc = 1,
-    auto_generte_links = 1
+    auto_generte_links = 1,
+    foldmethod = "expr",
   }
 }
 
@@ -442,53 +457,10 @@ lvim.autocommands.custom_groups = {
 -- 	},
 -- })
 
--- luasnip
 
--- local function prequire(...)
--- local status, lib = pcall(require, ...)
--- if (status) then return lib end
---     return nil
--- end
+-- Debuggers
 
--- local luasnip = prequire('luasnip')
+ require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
 
--- local t = function(str)
---     return vim.api.nvim_replace_termcodes(str, true, true, true)
--- end
-
--- local check_back_space = function()
---     local col = vim.fn.col('.') - 1
---     if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
---         return true
---     else
---         return false
---     end
--- end
-
--- _g.tab_complete = function()
---     if vim.fn.pumvisible() == 1 then
---         return t "<c-n>"
---     elseif luasnip and luasnip.expand_or_jumpable() then
---         return t "<plug>luasnip-expand-or-jump"
---     elseif check_back_space() then
---         return t "<tab>"
---     else
---         return vim.fn['compe#complete']()
---     end
--- end
--- _g.s_tab_complete = function()
---     if vim.fn.pumvisible() == 1 then
---         return t "<c-p>"
---     elseif luasnip and luasnip.jumpable(-1) then
---         return t "<plug>luasnip-jump-prev"
---     else
---         return t "<s-tab>"
---     end
--- end
-
-vim.api.nvim_set_keymap("i", "<tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<s-tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<s-tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<c-e>", "<plug>luasnip-next-choice", {})
-vim.api.nvim_set_keymap("s", "<c-e>", "<plug>luasnip-next-choice", {})
+vim.g.neoterm_default_mod = ':vertical'
+vim.g.medieval_langs = { 'python=python3', 'ruby', 'sh', 'console=bash' }

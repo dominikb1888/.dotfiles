@@ -33,7 +33,6 @@
   \begin{letter}{%
       Peter Pan\\Lager der wilden Jungs\\Nimmerland}
     \opening{Sehr geehrte Damen und Herren,}
-	\lipsum[1-5]
     \closing{Mit freundlichen Grüßen}
   \end{letter}%
 \end{document}

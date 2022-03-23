@@ -25,6 +25,7 @@ vicmd_symbol = " [V](bold #7dcfff) "
 min_time = 500
 format = "[$duration](bold #c0caf5)"
 
+
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
