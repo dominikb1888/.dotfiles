@@ -2,12 +2,6 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-if not set -q TMUX
-  set -g TMUX tmux new-session -d -s base
-  eval $TMUX
-  tmux attach-session -d -t base
-end
-
 set -U fish_greeting ""
 set -gx LANG en_US
 set -gx LC_ALL en_US.UTF-8
