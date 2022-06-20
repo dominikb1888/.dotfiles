@@ -1,0 +1,247 @@
+[
+	{
+		"name": "TEXT",
+		"value": "Preparing request to https://api.github.com/repos/DB-Teaching02-02-triangle-Marinapozhid/actions/runs",
+		"timestamp": 1651829081443
+	},
+	{
+		"name": "TEXT",
+		"value": "Current time is 2022-05-06T09:24:41.443Z",
+		"timestamp": 1651829081443
+	},
+	{
+		"name": "TEXT",
+		"value": "Using default HTTP version",
+		"timestamp": 1651829081443
+	},
+	{
+		"name": "TEXT",
+		"value": "Disable timeout",
+		"timestamp": 1651829081443
+	},
+	{
+		"name": "TEXT",
+		"value": "Enable automatic URL encoding",
+		"timestamp": 1651829081443
+	},
+	{
+		"name": "TEXT",
+		"value": "Enable SSL validation",
+		"timestamp": 1651829081443
+	},
+	{
+		"name": "TEXT",
+		"value": "Enable cookie sending with jar of 0 cookies",
+		"timestamp": 1651829081443
+	},
+	{
+		"name": "TEXT",
+		"value": "STATE: INIT => CONNECT handle 0x7f7bf0075008; line 1789 (connection #-5000)\n",
+		"timestamp": 1651829081444
+	},
+	{
+		"name": "TEXT",
+		"value": "Found bundle for host api.github.com: 0x600001ad48c8 [can multiplex]\n",
+		"timestamp": 1651829081444
+	},
+	{
+		"name": "TEXT",
+		"value": "Re-using existing connection! (#6) with host api.github.com\n",
+		"timestamp": 1651829081444
+	},
+	{
+		"name": "TEXT",
+		"value": "Connected to api.github.com (140.82.121.6) port 443 (#6)\n",
+		"timestamp": 1651829081444
+	},
+	{
+		"name": "TEXT",
+		"value": "STATE: CONNECT => DO handle 0x7f7bf0075008; line 1843 (connection #6)\n",
+		"timestamp": 1651829081444
+	},
+	{
+		"name": "TEXT",
+		"value": "Using Stream ID: 3 (easy handle 0x7f7bf0075008)\n",
+		"timestamp": 1651829081444
+	},
+	{
+		"name": "HEADER_OUT",
+		"value": "GET /repos/DB-Teaching02-02-triangle-Marinapozhid/actions/runs HTTP/2\r\nHost: api.github.com\r\nuser-agent: insomnia/2022.3.0\r\nauthorization: token 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\r\naccept: */*\r\n\r\n",
+		"timestamp": 1651829081444
+	},
+	{
+		"name": "TEXT",
+		"value": "STATE: DO => DID handle 0x7f7bf0075008; line 2077 (connection #6)\n",
+		"timestamp": 1651829081444
+	},
+	{
+		"name": "TEXT",
+		"value": "multi changed, check CONNECT_PEND queue!\n",
+		"timestamp": 1651829081444
+	},
+	{
+		"name": "TEXT",
+		"value": "STATE: DID => PERFORMING handle 0x7f7bf0075008; line 2196 (connection #6)\n",
+		"timestamp": 1651829081444
+	},
+	{
+		"name": "TEXT",
+		"value": "HTTP/2 found, allow multiplexing\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "HTTP/2 404 \r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "server: GitHub.com\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "date: Fri, 06 May 2022 09:24:41 GMT\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "content-type: application/json; charset=utf-8\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "content-length: 74\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "x-oauth-scopes: notifications, repo, user, workflow\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "x-accepted-oauth-scopes: repo\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "github-authentication-token-expiration: 2022-05-22 10:27:14 UTC\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "x-github-media-type: github.v3; format=json\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "x-ratelimit-limit: 5000\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "x-ratelimit-remaining: 4996\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "x-ratelimit-reset: 1651831675\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "x-ratelimit-used: 4\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "x-ratelimit-resource: core\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "access-control-expose-headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "access-control-allow-origin: *\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "strict-transport-security: max-age=31536000; includeSubdomains; preload\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "x-frame-options: deny\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "x-content-type-options: nosniff\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "x-xss-protection: 0\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "content-security-policy: default-src 'none'\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "vary: Accept-Encoding, Accept, X-Requested-With\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "x-github-request-id: 5DEE:2634:CE182:D3654:6274E950\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "HEADER_IN",
+		"value": "\r\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "TEXT",
+		"value": "Received 74 B chunk",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "TEXT",
+		"value": "nread == 0, stream closed, bailing\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "TEXT",
+		"value": "STATE: PERFORMING => DONE handle 0x7f7bf0075008; line 2395 (connection #6)\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "TEXT",
+		"value": "multi_done\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "TEXT",
+		"value": "Connection #6 to host api.github.com left intact\n",
+		"timestamp": 1651829081598
+	},
+	{
+		"name": "TEXT",
+		"value": "Expire cleared (transfer 0x7f7bf0075008)\n",
+		"timestamp": 1651829081598
+	}
+]

@@ -1,25 +1,17 @@
 --[[
 lvim is the global options object
 
-Linters should be
-filled in as strings with either
-a global executable or a path to
-an executable
-]]
+Linters should be filled in as strings with either a global executable or a path to an executable ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
---require('impatient')
+-- require('impatient')
 
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = true
-lvim.colorscheme = "onedarker"
 vim.opt.relativenumber = true -- set relative numbered lines
 vim.opt.foldenable = false -- disable folding on startup
 vim.opt.keywordprg = "google"
 
--- function Pypoprepl()
---         require('telegraph').telegraph({cmd='python3 -c "import time\n{cline}\ntime.sleep(2)"', how='tmux_popup'})
--- end
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -38,14 +30,11 @@ lvim.keys.normal_mode = {
         ['<silent> <a-up>'] =  'gk',
         ['n'] =  'nzzzv',
         ['j'] =  'mzj`z',
-        ['<leader>dv'] = ':lua require("dapui").toggle()<cr>',
-        ['<leader>r'] = ':lua Pypoprepl()<cr>',
+        -- ['<leader>dv'] = ':lua require("dapui").toggle()<cr>',
         ['<leader>sl'] = ':lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>',
-        ['<leader>E'] = ':TREPLSendLine<cr>'
 }
 
 lvim.keys.visual_mode = {
-        ['<leader>E'] = ":TREPLSendSelection<cr>",
         ['.'] = ':norm.<cr>',
         }
 
@@ -73,7 +62,7 @@ lvim.builtin.telescope.defaults.mappings = {
 }
 
 -- Use which-key to add extra bindings with the leader-key prefix
-lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
+lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<cr>", "Projects" }
 lvim.builtin.which_key.mappings["t"] = {
   name = "+Trouble",
   r = { "<cmd>Trouble lsp_references<cr>", "References" },
@@ -88,11 +77,10 @@ lvim.builtin.which_key.mappings["t"] = {
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.terminal.active = true
-lvim.builtin.dap.active = true
+lvim.builtin.dap.active = false
 lvim.builtin.lualine.active = true
-lvim.builtin.bufferline.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
+-- lvim.builtin.nvimtree.show_icons.git = true
 
 
 -- if you don't want all the parsers change this to a table of the ones you want
@@ -183,39 +171,40 @@ formatters.setup {
 --   },
 -- }
 -- Debuggers
- require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
+ -- require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
 
 -- additional plugins
 lvim.plugins = {
+        -- { 'lewis6991/impatient.nvim' },
         -- color schemes
         -- { "folke/tokyonight.nvim" },
         -- debugging
-        { "rcarriga/nvim-dap-ui",
-                requires = { "mfussenegger/nvim-dap" },
-                config = function()
-                        require("dapui").setup()
-                end
-        },
-        { "thehamsta/nvim-dap-virtual-text" },
-        { "mfussenegger/nvim-dap-python"},
-        { "rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins" },
+        -- { "rcarriga/nvim-dap-ui",
+        --         requires = { "mfussenegger/nvim-dap" },
+        --         config = function()
+        --                 require("dapui").setup()
+        --         end
+        -- },
+        -- { "thehamsta/nvim-dap-virtual-text" },
+        -- { "mfussenegger/nvim-dap-python"},
+        -- { "rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins" },
         -- Telescope
         { 'nvim-telescope/telescope-bibtex.nvim' },
-        { "nvim-telescope/telescope-dap.nvim",
-                config = function()
-                        require("telescope").load_extension("dap")
-                end
-        },
+        -- { "nvim-telescope/telescope-dap.nvim",
+        --         config = function()
+        --                 require("telescope").load_extension("dap")
+        --         end
+        -- },
         { "nvim-telescope/telescope-symbols.nvim" },
         { "nvim-telescope/telescope-media-files.nvim" },
         { "dominikb1888/telescope-github.nvim"},
         { "crispgm/telescope-heading.nvim" },
         { "cljoly/telescope-repo.nvim" },
-        { "airblade/vim-rooter" },
-        { "jbyuki/one-small-step-for-vimkind" },
+        -- { "airblade/vim-rooter" },
+        -- { "jbyuki/one-small-step-for-vimkind" },
         -- editing
-        -- { "folke/trouble.nvim", cmd = "troubletoggle", },
-        { "metakirby5/codi.vim", cmd = "codi", },
+        { "folke/trouble.nvim", cmd = "troubletoggle", },
+        -- { "metakirby5/codi.vim", cmd = "codi", },
         { "tpope/vim-repeat" },
         { "tpope/vim-surround", keys = {"c", "d", "y"} },
         { "turbio/bracey.vim",
@@ -224,13 +213,13 @@ lvim.plugins = {
         },
         { "felipec/vim-sanegx", event = "bufread", },
         { "folke/todo-comments.nvim", event = "bufread", },
-        { "ellisonleao/glow.nvim", ft = {"markdown"} },
-        { "windwp/nvim-ts-autotag",
-                event = "insertenter",
-                config = function()
-                        require("nvim-ts-autotag").setup()
-                end,
-        },
+        -- { "ellisonleao/glow.nvim", ft = {"markdown"} },
+        -- { "windwp/nvim-ts-autotag",
+        --         event = "insertenter",
+        --         config = function()
+        --                 require("nvim-ts-autotag").setup()
+        --         end,
+        -- },
         { "phaazon/hop.nvim",
                 event = "bufread",
                 config = function()
@@ -281,14 +270,14 @@ lvim.plugins = {
         -- {'vim-pandoc/vim-rmarkdown'},
         -- { 'jalvesaq/nvim-r' },
         -- {'gpanders/vim-medieval'},
-        { 'kassio/neoterm' },
+        -- { 'kassio/neoterm'},
         -- { 'jghauser/auto-pandoc.nvim',
         --         requires = 'nvim-lua/plenary.nvim',
         --         config = function() require('auto-pandoc') end },
         -- {'lervag/vimtex',                   -- use braces when passing options
         --         opt = true,
         --         config = function() vim.g.vimtex_view_method = 'zathura' end },
-        { 'vim-test/vim-test' },
+        -- { 'vim-test/vim-test' },
         -- { 'tpope/vim-projectionist' },
         -- { 'tpope/vim-dispatch' },
         -- { 'tpope/vim-rhubarb' },
@@ -304,7 +293,6 @@ lvim.plugins = {
         -- { 'mattn/calendar-vim' },
         -- { 'tools-life/taskwiki' },
         -- { 'michal-h21/vimwiki-sync' },
-        -- { 'lewis6991/impatient.nvim' },
         -- { 'soywod/himalaya', rtp = 'vim'},
         -- {'ellisonleao/carbon-now.nvim'},
         -- { 'mrjones2014/legendary.nvim'},
@@ -358,14 +346,27 @@ lvim.builtin.telescope.extensions = {
     },
 }
 
--- use which-key to add extra bindings with the leader-key prefix
-lvim.builtin.which_key.mappings["p"] = { "<cmd>telescope projects<cr>", "projects" }
-lvim.builtin.which_key.mappings["t"] = {
-   name = "+trouble",
-   r = { "<cmd>trouble lsp_references<cr>", "references" },
-   f = { "<cmd>trouble lsp_definitions<cr>", "definitions" },
-   d = { "<cmd>trouble lsp_document_diagnostics<cr>", "diagnostics" },
-   q = { "<cmd>trouble quickfix<cr>", "quickfix" },
-   l = { "<cmd>trouble loclist<cr>", "locationlist" },
-   w = { "<cmd>trouble lsp_workspace_diagnostics<cr>", "diagnostics" },
- }
+
+-- local lazygit = Terminal:new({
+--   cmd = "lazygit",
+--   dir = "git_dir",
+--   direction = "float",
+--   float_opts = {
+--     border = "double",
+--   },
+--   -- function to run on opening the terminal
+--   on_open = function(term)
+--     vim.cmd("startinsert!")
+--     vim.api.nvim_buf_set_keymap(term.bufnr, "n", "q", "<cmd>close<CR>", {noremap = true, silent = true})
+--   end,
+--   -- function to run on closing the terminal
+--   on_close = function(term)
+--     vim.cmd("Closing terminal")
+--   end,
+-- })
+
+-- function _lazygit_toggle()
+--   lazygit:toggle()
+-- end
+
+-- vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})

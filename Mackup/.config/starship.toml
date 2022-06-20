@@ -42,8 +42,8 @@ python_binary = "python3"
 commit_hash_length = 8
 style = "bold #a9b1d6"
 
-[git_state]
-progress_divider = " of "
+# [git_state]
+# progress_divider = " of "
 
 [git_branch]
 symbol = "🌱 "
