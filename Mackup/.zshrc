@@ -199,3 +199,5 @@ source /usr/local/opt/git-extras/share/git-extras/git-extras-completion.zsh
 alias luamake=/Users/dboehler/.config/nvim/lua-language-server/3rd/luamake/luamake
 
 eval "$(starship init zsh)"
+export NIX_PATH=darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
+source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh

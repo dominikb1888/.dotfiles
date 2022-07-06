@@ -134,4 +134,3 @@ fish_add_path /usr/local/opt/python@3.10/bin
 # !! Contents within this block are managed by 'conda init' !!
 eval /Users/dboehler/miniconda3/bin/conda "shell.fish" "hook" $argv | source
 # <<< conda initialize <<<
-

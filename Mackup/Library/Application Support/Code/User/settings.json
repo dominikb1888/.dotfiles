@@ -91,7 +91,7 @@
         "*.lco": "latex"
     },
     "jupyter.sendSelectionToInteractiveWindow": true,
-    "python.defaultInterpreterPath": "/usr/local/bin/python3",
+    "python.defaultInterpreterPath": "/Users/dboehler/.virtualenvs/.venv/bin/python",
     "tabnine.experimentalAutoImports": true,
     "workbench.colorTheme": "Default Dark+",
     "workbench.iconTheme": "vscode-icons",
@@ -102,7 +102,11 @@
     
 
         "editor.wordWrap": "on",
-        "editor.quickSuggestions": false
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        }
     },
     "markdown.extension.toc.orderedList": true,
     "ai.azureml.experimental: V2Config": false,
