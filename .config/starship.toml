@@ -1,0 +1,167 @@
+add_newline = false
+
+[aws]
+symbol = " "
+
+[battery]
+charging_symbol = ""
+discharging_symbol = ""
+empty_symbol = ""
+full_symbol = ""
+unknown_symbol = ""
+
+[character]
+error_symbol = " [❱](#a9b1d6)[❱](#f7768e)[❱](#a9b1d6)"
+success_symbol = " [❱](#a9b1d6)[❱](#9ece6a)[❱](#a9b1d6)"
+vicmd_symbol = " [V](bold #7dcfff) "
+
+[cmake]
+symbol = "△ "
+
+[cmd_duration]
+format = "[$duration](bold #c0caf5)"
+min_time = 500
+
+[conda]
+symbol = " "
+
+[crystal]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[directory]
+fish_style_pwd_dir_length = 1
+read_only = " "
+truncation_length = 2
+
+[docker_context]
+symbol = " "
+
+[dotnet]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[erlang]
+symbol = " "
+
+[gcloud]
+disabled = true
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[git_commit]
+tag_symbol = " "
+
+[git_status]
+ahead = " "
+behind = " "
+conflicted = " "
+deleted = " "
+diverged = " "
+format = "([$all_status$ahead_behind]($style) )"
+modified = " "
+renamed = " "
+staged = " "
+stashed = " "
+untracked = " "
+
+[golang]
+symbol = " "
+
+[helm]
+symbol = "⎈ "
+
+[hg_branch]
+symbol = " "
+
+[hostname]
+style = "bold green"
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[kotlin]
+symbol = " "
+
+[kubernetes]
+symbol = "☸ "
+
+[line_break]
+disabled = true
+
+[lua]
+symbol = " "
+
+[memory_usage]
+disabled = true
+symbol = " "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[openstack]
+symbol = " "
+
+[package]
+symbol = " "
+
+[perl]
+symbol = " "
+
+[php]
+symbol = " "
+
+[purescript]
+symbol = "<≡> "
+
+[python]
+symbol = " "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[shlvl]
+symbol = " "
+
+[status]
+not_executable_symbol = " "
+not_found_symbol = " "
+sigint_symbol = " "
+signal_symbol = " "
+symbol = " "
+
+[swift]
+symbol = " "
+
+[terraform]
+symbol = "𝗧 "
+
+[username]
+style_user = "bold blue"
+
+[vagrant]
+symbol = "𝗩 "
+
+[zig]
+symbol = " "
