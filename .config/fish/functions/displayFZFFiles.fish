@@ -1,1 +1,3 @@
-/nix/store/nclgqj9a3v5wqr6bv35sx8xfz7y6079n-home-manager-files/.config/fish/functions/displayFZFFiles.fish
+function displayFZFFiles
+    fzf --preview 'bat --color=always --style=numbers --line-range :500 {}'
+end

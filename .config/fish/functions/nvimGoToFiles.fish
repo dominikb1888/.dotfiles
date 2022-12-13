@@ -1,1 +1,13 @@
-/nix/store/nclgqj9a3v5wqr6bv35sx8xfz7y6079n-home-manager-files/.config/fish/functions/nvimGoToFiles.fish
+function nvimGoToFiles
+    set nvimExists (which nvim)
+    if [ -z "$nvimExists" ]
+        return
+    end
+
+    set selection (displayFZFFiles)
+    if [ -z "$selection" ]
+        return
+    else
+        nvim $selection
+    end
+end

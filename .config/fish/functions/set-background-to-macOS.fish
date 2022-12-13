@@ -1,1 +1,8 @@
-/nix/store/nclgqj9a3v5wqr6bv35sx8xfz7y6079n-home-manager-files/.config/fish/functions/set-background-to-macOS.fish
+function set-background-to-macOS
+    # Returns 'Dark' if in dark mode fails otherwise.
+    if defaults read -g AppleInterfaceStyle &>/dev/null
+        set -U term_background dark
+    else
+        set -U term_background light
+    end
+end

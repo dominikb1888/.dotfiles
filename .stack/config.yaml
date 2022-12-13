@@ -1,0 +1,1 @@
+{"nix":{"enable":true},"templates":{"params":{"author-email":"dominik.boehler@gmx.net","author-name":"Dominik Boehler","github-username":"dominikb1888"},"scm-init":"git"}}

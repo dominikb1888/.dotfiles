@@ -1,1 +1,5 @@
-/nix/store/nclgqj9a3v5wqr6bv35sx8xfz7y6079n-home-manager-files/.config/fish/functions/nvim-sync-term-buffer-pwd.fish
+function nvim-sync-term-buffer-pwd --on-variable="PWD"
+    if test -n "$NVIM"
+        /nix/store/yyfwy71dk8nnh4p0y1sxjvagxvgng5xg-neovim-remote-2.5.1/bin/nvr -c "let g:term_buffer_pwds.$fish_pid = '$PWD' | call Set_term_buffer_pwd() "
+    end
+end

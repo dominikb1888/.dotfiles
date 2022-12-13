@@ -1,1 +1,53 @@
-/nix/store/nclgqj9a3v5wqr6bv35sx8xfz7y6079n-home-manager-files/.config/git/config
+[alias]
+	a = "add"
+	aa = "add --all"
+	amend = "commit --amend --no-edit"
+	c = "commit"
+	ca = "commit -a"
+	cam = "commit -a -m"
+	cm = "commit -m"
+	co = "checkout"
+	cob = "checkout -b"
+	com = "checkout master"
+	d = "diff"
+	dc = "diff --cached"
+	lg = "log --graph --abbrev-commit --decorate --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %s %C(italic)- %an%C(reset)%C(magenta bold)%d%C(reset)' --all"
+	pl = "pull"
+	pu = "push"
+	puf = "push --force"
+	r = "reset HEAD"
+	r1 = "reset HEAD^"
+	r2 = "reset HEAD^^"
+	rb = "rebase"
+	rba = "rebase --abort"
+	rbc = "rebase --continue"
+	rbi = "rebase --interactive"
+	rbs = "rebase --skip"
+	rhard = "reset --hard"
+	rhard1 = "reset HEAD^ --hard"
+	rhard2 = "reset HEAD^^ --hard"
+	rs = "restore --staged"
+	s = "status"
+	sd = "stash drop"
+	spo = "stash pop"
+	spu = "stash push"
+	spua = "stash push --all"
+
+[core]
+	pager = "/nix/store/c9mv0ynw1yfxmsxfxy01jckvnis9c3di-delta-0.15.1/bin/delta"
+
+[credential "https://github.com"]
+	helper = "/nix/store/2ph1hk79h8xfv70via2075n0lz1my80v-gh-2.20.2/bin/gh auth git-credential"
+
+[diff]
+	colorMoved = "default"
+
+[interactive]
+	diffFilter = "/nix/store/c9mv0ynw1yfxmsxfxy01jckvnis9c3di-delta-0.15.1/bin/delta --color-only"
+
+[pull]
+	rebase = true
+
+[user]
+	email = "dominik.boehler@gmx.net"
+	name = "Dominik Boehler"

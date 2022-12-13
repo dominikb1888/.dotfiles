@@ -1,1 +1,3 @@
-/nix/store/nclgqj9a3v5wqr6bv35sx8xfz7y6079n-home-manager-files/.config/fish/functions/set-term-colors.fish
+function set-term-colors --on-variable="term_background"
+    term-background $term_background
+end
